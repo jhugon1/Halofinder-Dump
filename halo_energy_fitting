@@ -1,0 +1,129 @@
+"""
+Exponential Cost Fitting for Halo Energy Distributions
+
+This script fits an exponential function to the energy distribution of halo particles in a cosmological simulation.
+It minimizes an error-based cost function to determine optimal parameters. The end goal of this approach is to run
+comparisons between halos classified by this energy fitting, and halos classified by the multi-snapshot algorithm,
+  to see if we can achieve similar levels of accuracy with a computationally cheaper process.
+
+Features:
+- Reads binary simulation data (`.bin` files) containing energy and radius values.
+- Fits an exponential function using `scipy.optimize.minimize`.
+- Visualizes errors using 2D histograms (`plt.hist2d`).
+- Saves multiple plots showcasing the fitting results.
+
+Author: John Hugon
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy as sp
+from scipy.optimize import minimize
+import os
+
+# Set default colormap
+plt.set_cmap("inferno")
+
+# Define relative output directory
+OUTPUT_DIR = "output/"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+# Load data from binary files
+rorb = np.fromfile('rorb_binned.bin', dtype=np.float32)
+rinf = np.fromfile('rinf_binned.bin', dtype=np.float32)
+eorb = np.fromfile('eorb_binned.bin', dtype=np.float32)
+einf = np.fromfile('einf_binned.bin', dtype=np.float32)
+
+# Downsample data for visualization
+rorbc, rinfc = rorb[::200], rinf[::200]
+eorbc, einfc = eorb[::200], einf[::200]
+
+rc, ec = np.append(rorbc, rinfc), np.append(eorbc, einfc)
+r, e = np.append(rorb, rinf), np.append(eorb, einf)
+
+w = 0.15  # Bandwidth for energy and radius
+
+def exp_cost(abc):
+    """Cost function that evaluates the error of the exponential fit."""
+    a, b, c = abc
+    errors = sum(
+        ec[x] + w > (a * np.exp(-b * (rc[x] + w)) + c) and 
+        e[x] - w < (a * np.exp(-b * (rc[x] - w)) + c) 
+        for x in range(len(rc))
+    )
+    return errors
+
+def final_exp_cost(abc, errors_r, errors_e):
+    """Final error evaluation and visualization."""
+    a, b, c = abc
+    errors = 0
+    for x in range(len(rorb)):
+        if eorb[x] > (a * np.exp(-b * rorb[x]) + c):
+            errors += 1
+            errors_e.append(eorb[x])
+            errors_r.append(rorb[x])
+    print(f'Errors orb: {errors}')
+    
+    for x in range(len(rinf)):
+        if einf[x] < (a * np.exp(-b * rinf[x]) + c):
+            errors += 1
+            errors_e.append(einf[x])
+            errors_r.append(rinf[x])
+    
+    print(f'Final Error Percentage: {100 * len(errors_r) / (len(rorb) + len(rinf)):.2f}%')
+    
+    m = np.linspace(0, max(np.append(rorb, rinf)), 10000)
+    n = a * np.exp(-m * b) + c
+    n2 = a * np.exp(-(m + w) * b) + c - w
+    n3 = a * np.exp(-(m - w) * b) + c + w
+    
+    # Generate and save plots
+    for data, filename in [(errors_r, "BANDED_Test_Errors_Exponential_Cost_Plot.png"),
+                           (rorb, "BANDED_ORB_Test_Exponential_Cost_Plot.png"),
+                           (rinf, "BANDED_INF_Test_Exponential_Cost_Plot.png")]:
+        plt.hist2d(data, errors_e, bins=(100, 100))
+        plt.plot(m, n, c='r')
+        plt.plot(m, n2, c='r', linestyle='dashed')
+        plt.plot(m, n3, c='r', linestyle='dashed')
+        plt.savefig(os.path.join(OUTPUT_DIR, filename))
+        plt.close()
+    
+    return errors
+
+def my_minimize(bnds, x0, method):
+    """Optimize the exponential fit using scipy.optimize.minimize."""
+    result = minimize(exp_cost, x0, bounds=bnds, method=method)['x']
+    a, b, c = result
+    print(f'Optimized Parameters: a={a:.4f}, b={b:.4f}, c={c:.4f}')
+    
+    errors_r, errors_e = [], []
+    errors = final_exp_cost((a, b, c), errors_r, errors_e)
+    percent_error = 100 * errors / (len(rorb) + len(rinf))
+    print(f'% Error = {percent_error:.2f}%')
+    
+    # Generate main error histogram
+    plt.hist2d(np.append(rorb, rinf), np.append(eorb, einf), bins=(100, 100))
+    plt.title(f"Split % Error {percent_error:.2f}%")
+    plt.ylabel("E/E0")
+    plt.xlabel("R/R200")
+    
+    m = np.linspace(0, max(np.append(rorb, rinf)), 10000)
+    n = a * np.exp(-m * b) + c
+    n2 = a * np.exp(-(m + w) * b) + c - w
+    n3 = a * np.exp(-(m - w) * b) + c + w
+    
+    plt.plot(m, n, c='r')
+    plt.plot(m, n2, c='r', linestyle='dashed')
+    plt.plot(m, n3, c='r', linestyle='dashed')
+    plt.savefig(os.path.join(OUTPUT_DIR, "BANDED_Exponential_Cost_Plot.png"))
+    plt.close()
+
+def main():
+    """Main function to run the optimization and error evaluation."""
+    bnds = [(3.2, 4.4), (2.7, 3.7), (-0.8, -0.6)]  # Bounds for a, b, c
+    x0 = [3.8, 3.4, -0.7]  # Initial guess
+    method = "Powell"
+    my_minimize(bnds, x0, method)
+    
+if __name__ == "__main__":
+    main()
