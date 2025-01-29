@@ -23,10 +23,10 @@ This repository provides a **curated selection of code** from my **research proj
 ---
 
 ### **🔹 Contact & Additional Information**  
-If you are a **recruiter** or **collaborator** interested in learning more about my contributions, feel free to **contact me via GitHub or LinkedIn** for additional context.  
+If you are a **recruiter** interested in learning more about my contributions, feel free to **contact me via Email, GitHub, or LinkedIn** for additional context.  
 
-📧 **Email:** [your.email@example.com]  
-🔗 **LinkedIn:** [linkedin.com/in/your-profile]  
+📧 **Email:** [jhugon@arizona.edu]  
+🔗 **LinkedIn:** [www.linkedin.com/in/john-lucas-hugon-581014266]  
 
 ---
 
