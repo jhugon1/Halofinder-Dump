@@ -3,7 +3,7 @@
 ## **Overview**  
 This repository contains a **curated selection of code** from my **research in computational astrophysics**, specifically focused on **halo finding and analysis in cosmological simulations**.  
 
-I am the **sole author** of all the code included here. While the full project remains private due to its ongoing nature and pending publication, this repository serves to highlight a subsection of my **algorithm development, data analysis, and coding contributions** within a physics-driven computational framework.  
+While the full project remains private due to its ongoing nature and pending publication, this repository serves to highlight a subsection of my **algorithm development, data analysis, and coding contributions** within a physics-driven computational framework.  
 
 Some scripts in this repository may reference external files that are not included. I have omitted them from this repository to maintain the integrity of the shared contributions that went into them.
 
