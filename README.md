@@ -22,6 +22,13 @@ This repository provides a **curated selection of code** from my **research proj
 
 ---
 
+## Example plotting: Catalog Comparison Visualization
+This plot shows outliers detected in the halo mass distribution. Generated from halo_visualization_comparison script
+
+![Outlier Visualization](images/fast_finder_versus_rafa_finder_comparison.png)
+
+---
+
 ### **🔹 Contact & Additional Information**  
 If you are a **recruiter** interested in learning more about my contributions, feel free to **contact me via Email, GitHub, or LinkedIn** for additional context.  
 
