@@ -23,7 +23,7 @@ This repository provides a **curated selection of code** from my **research proj
 ---
 
 ## Example plotting: Catalog Comparison Visualization
-This plot shows outliers detected in the halo mass distribution. Generated from halo_visualization_comparison script
+This plot visualizes differences in particles assigned to our computationally cheap, dynamical halofinder (middle plots), and a comparison catalog of halos generated from multi-snapshot data (right plots). Plot generated from halo_visualization_comparison script
 
 ![Outlier Visualization](halofinder_plots/fast_finder_versus_rafa_finder_comparison.png)
 
