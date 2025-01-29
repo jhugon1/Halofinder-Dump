@@ -2,13 +2,13 @@
 Halo Finder Comparison: Fast vs. Multi-Snapshot Methods
 
 This script generates PDF visualizations comparing two halo-finding algorithms:
-- **Fast HaloFinder:** A single-snapshot method optimized for computational efficiency.
-- **Rafa's HaloFinder:** A multi-snapshot approach providing more accurate halo evolution tracking.
+- Fast HaloFinder: A single-snapshot method optimized for computational efficiency.
+- Rafa's HaloFinder: A multi-snapshot approach providing more accurate halo evolution tracking.
 
 ### Purpose
-- **Compare particle distributions and dynamics** across both halo-finding methods.
-- **Visualize differences** in halo mass, velocity dispersion, and radial profiles.
-- **Identify potential outliers** where the methods significantly disagree.
+- Compare particle distributions and dynamics across both halo-finding methods.
+- Visualize difference in halo mass, velocity dispersion, and radial profiles.
+- Identify potential outliers where the methods significantly disagree.
 
 ### Features
 - Reads HDF5 simulation data containing halo and particle information.
