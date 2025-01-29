@@ -658,11 +658,11 @@ def plot_near_combined_halos(
 def compare_halo_list(hid_list):
     for hid in hid_list:
         hid = int(hid)
-        plot_near_combined_halos(f"/home/jhugon/halofinder/halofinder/outlier_new_plots/rafa_halos_list/halo_{hid}_comp.pdf",
+        plot_near_combined_halos(f"/path_to/halofinder/halofinder/outlier_new_plots/rafa_halos_list/halo_{hid}_comp.pdf",
             hid,
             all_part_ids, all_part_pos, all_part_vel,
             rafa_fast_halo_data_object, fast_halo_part_hids, acc_halo_data_object)
-        plot_near_combined_halos(f"/home/jhugon/halofinder/halofinder/outlier_new_plots/rockstar_seeds_list/halo_{hid}_comp.pdf",
+        plot_near_combined_halos(f"/path_to/halofinder/halofinder/outlier_new_plots/rockstar_seeds_list/halo_{hid}_comp.pdf",
             hid,
             all_part_ids, all_part_pos, all_part_vel,
             rock_fast_halo_data_object, fast_halo_part_hids, acc_halo_data_object)
@@ -670,7 +670,7 @@ def compare_halo_list(hid_list):
 def plot_halo_by_halo(hid_list):
     for hid in hid_list:
         hid = int(hid)
-        plot_near_fast_halos(f"/home/jhugon/halofinder/halofinder/outlier_new_plots/rockstar_halo_by_halo/halo_{hid}.pdf",
+        plot_near_fast_halos(f"/path_to/halofinder/halofinder/outlier_new_plots/rockstar_halo_by_halo/halo_{hid}.pdf",
                                 hid,
                                 all_part_ids, all_part_pos, all_part_vel,
                                 rock_fast_halo_data_object, fast_halo_part_hids, acc_halo_data_object)
@@ -683,11 +683,11 @@ if __name__ == "__main__":
     seed_ids, seed_vmaxs, seed_pos, seed_vel, _, _ = seed_data
     all_part_ids, all_part_pos, all_part_vel = part_data
 
-    fast_halo_data_path_rafa_halos = "/spiff/jhugon/updated_halofinder_rafa_halos/halo_catalogue.h5"
-    fast_halo_data_path_rockstar_seeds = "/spiff/jhugon/updated_halofinder_data_rockstar_seeds/halo_catalogue.h5"
+    fast_halo_data_path_rafa_halos = "/path_to/updated_halofinder_rafa_halos/halo_catalogue.h5"
+    fast_halo_data_path_rockstar_seeds = "/path_to/updated_halofinder_data_rockstar_seeds/halo_catalogue.h5"
 
-    fast_part_hid_path = "/spiff/jhugon/halofinder_data/halofinder_on_rafa_halos/hid_particles.h5"
-    acc_halo_data_path = "/spiff/edgarmsc/simulations/Banerjee/data_garcia_23/a_inf.hdf5"
+    fast_part_hid_path = "/path_to/halofinder_data/halofinder_on_rafa_halos/hid_particles.h5"
+    acc_halo_data_path = "/path_to/simulations/a_inf.hdf5"`
     
     rafa_fast_halo_data_object = load_fast_halo_data(fast_halo_data_path_rafa_halos)
     rock_fast_halo_data_object = load_fast_halo_data(fast_halo_data_path_rockstar_seeds)
