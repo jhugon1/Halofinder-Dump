@@ -1,9 +1,22 @@
 """
-This script generates PDF visualizations comparing two halo-finding algorithms: 
-the "Fast HaloFinder" (single snapshot analysis) and "Rafa's HaloFinder" 
-(multi-snapshot analysis). It produces side-by-side plots for individual halos 
-and groups of halos to illustrate the differences in particle distributions, 
-halo properties, and dynamics.
+Halo Finder Comparison: Fast vs. Multi-Snapshot Methods
+
+This script generates PDF visualizations comparing two halo-finding algorithms:
+- **Fast HaloFinder:** A single-snapshot method optimized for computational efficiency.
+- **Rafa's HaloFinder:** A multi-snapshot approach providing more accurate halo evolution tracking.
+
+### Purpose
+- **Compare particle distributions and dynamics** across both halo-finding methods.
+- **Visualize differences** in halo mass, velocity dispersion, and radial profiles.
+- **Identify potential outliers** where the methods significantly disagree.
+
+### Features
+- Reads HDF5 simulation data containing halo and particle information.
+- Implements multiple masking functions to filter relevant halos and particles.
+- Generates 2D histograms and overlay plots for detailed visual analysis.
+- Produces side-by-side comparisons in PDF format for easy review.
+
+Author: John Hugon
 """
 
 import numpy as np
