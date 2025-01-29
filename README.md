@@ -17,10 +17,10 @@ Some scripts in this repository may reference external files that are not includ
 ---
 
 ### **🔹 Skills & Technologies Demonstrated**  
-- **Scientific Computing & Numerical Methods:** Efficient handling of large datasets and high-dimensional parameter spaces.  
-- **Python & Data Science:** Use of `NumPy`, `SciPy`, `h5py`, `Matplotlib`, and `pandas` for analysis.  
+- **Python & Data Science:** Use of `NumPy`, `SciPy`, `h5py`, `Matplotlib`, and `pandas` for analysis. 
 - **Optimization:** Algorithmic efficiency improvements for large-scale halo catalogs.  
-- **Big Data Handling:** Managing and processing large simulation datasets with HDF5.  
+- **Big Data Handling:** Managing and processing large simulation datasets with HDF5.
+- **Scientific Computing & Numerical Methods:** Efficient handling of large datasets and high-dimensional parameter spaces.  
 - **Visualization & Statistical Analysis:** Creating plots for scientific interpretation of results.  
 
 > **Note:** The full scientific pipeline and datasets remain private to protect unpublished research findings.
