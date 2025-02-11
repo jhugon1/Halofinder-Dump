@@ -9,10 +9,17 @@ Some scripts in this repository may reference external files that are not includ
 
 ---
 
-### **🔹 Project Context (Non-Confidential)**  
+### **🔹 Project Context **  
 - The research focuses on **identifying and analyzing dark matter halos** in large-scale cosmological simulations.  
 - The codebase involves **numerical methods, statistical modeling, and computational techniques** applied to astrophysical data.  
 - This work contributes to an upcoming **scientific publication**, and as such, only a subset of non-sensitive code is shared here.
+
+---
+
+## Example plotting: Catalog Comparison Visualization
+This plot visualizes differences in particles assigned to our computationally cheap, dynamical halofinder (middle plots), and a comparison catalog of halos generated from multi-snapshot data (right plots). Plot generated from halo_visualization_comparison script
+
+![Outlier Visualization](halofinder_plots/fast_finder_versus_rafa_finder_comparison.png)
 
 ---
 
@@ -24,13 +31,6 @@ Some scripts in this repository may reference external files that are not includ
 - **Visualization & Statistical Analysis:** Creating plots for scientific interpretation of results.  
 
 > **Note:** The full scientific pipeline and datasets remain private to protect unpublished research findings.
-
----
-
-## Example plotting: Catalog Comparison Visualization
-This plot visualizes differences in particles assigned to our computationally cheap, dynamical halofinder (middle plots), and a comparison catalog of halos generated from multi-snapshot data (right plots). Plot generated from halo_visualization_comparison script
-
-![Outlier Visualization](halofinder_plots/fast_finder_versus_rafa_finder_comparison.png)
 
 ---
 
