@@ -41,6 +41,3 @@ If you are a **recruiter** interested in learning more about my contributions, f
 🔗 **LinkedIn:** [www.linkedin.com/in/john-lucas-hugon-581014266]  
 
 ---
-
-### **⚠️ Disclaimer**  
-This repository is for **showcasing coding contributions only**. The scientific results, full methodologies, and unpublished research details are **not disclosed here**. The repository does **not** contain any proprietary or sensitive data from the main research project.
