@@ -19,7 +19,7 @@ Performance Features:
 - Parallel processing for coordinate transformations
 - Optimized neighbor search algorithms
 
-Authors: Optimized version for halofinder repository
+Authors: John Hugon, Vadim Bernshteyn
 """
 
 import math
