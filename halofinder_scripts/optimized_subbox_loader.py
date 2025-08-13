@@ -5,20 +5,6 @@ This module provides optimized spatial partitioning and data loading functionali
 large-scale cosmological simulations. It implements efficient subbox-based data organization
 with vectorized operations and intelligent caching for maximum performance.
 
-Key Optimizations:
-- Numba JIT compilation for critical path functions
-- Vectorized subbox ID generation with parallel processing
-- Intelligent caching system for repeated computations
-- Memory-efficient periodic boundary condition handling
-- Batch HDF5 I/O operations with compression
-- Adaptive downsampling strategies
-
-Performance Features:
-- 5-10x speedup over naive implementations
-- Reduced memory footprint through smart data structures
-- Parallel processing for coordinate transformations
-- Optimized neighbor search algorithms
-
 Authors: John Hugon, Vadim Bernshteyn
 """
 
