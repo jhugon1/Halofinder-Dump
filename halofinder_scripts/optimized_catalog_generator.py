@@ -6,13 +6,6 @@ It identifies and catalogs dark matter halos using orbital/infall energy cuts to
 from those on escaping trajectories. The algorithm processes seeds by decreasing vmax values and applies
 dynamical criteria to assign particles to halos, providing a faster alternative to multi-snapshot methods.
 
-Key Optimizations:
-- Vectorized spatial operations and pre-computed coordinate transformations
-- Efficient KDTree-based neighbor searches replacing nested loops
-- Memory-optimized data structures and in-place operations
-- Reduced redundant calculations through caching and smart indexing
-- Streamlined I/O with batch HDF5 writes
-
 Authors: John Hugon, Vadim Bernshteyn
 """
 
