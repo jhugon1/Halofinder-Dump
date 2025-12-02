@@ -9,13 +9,6 @@ Some scripts in this repository may reference external files that are not includ
 
 ---
 
-### Project Context   
-- The research focuses on identifying and analyzing dark matter halos in large-scale cosmological simulations.  
-- The codebase involves numerical methods, statistical modeling, and computational techniques applied to astrophysical data.  
-- This work contributes to an upcoming scientific publication, and as such, only a subset of non-sensitive code is shared here.
-
----
-
 ## Example plotting: Catalog Comparison Visualization
 This plot visualizes differences in particles assigned to our computationally cheap, dynamical halofinder (middle plots), and a comparison catalog of halos generated from multi-snapshot data (right plots). Plot generated from halo_visualization_comparison script
 
@@ -25,12 +18,10 @@ This plot visualizes differences in particles assigned to our computationally ch
 
 ### Skills & Technologies Demonstrated 
 - Python & Data Science: Use of `NumPy`, `SciPy`, `h5py`, `Matplotlib`, and `pandas` for analysis. 
-- Optimization:** Algorithmic efficiency improvements for large-scale halo catalogs.  
+- Optimization: Algorithmic efficiency improvements for large-scale halo catalogs.  
 - Big Data Handling: Managing and processing large simulation datasets with HDF5.
 - Scientific Computing & Numerical Methods: Efficient handling of large datasets and high-dimensional parameter spaces.  
 - Visualization & Statistical Analysis: Creating plots for scientific interpretation of results.  
-
-*Note: The full scientific pipeline and datasets remain private to protect unpublished research findings.
 
 ---
 
