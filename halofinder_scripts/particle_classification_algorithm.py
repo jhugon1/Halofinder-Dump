@@ -20,25 +20,6 @@ import h5py as h5
 import os
 from os.path import join, abspath
 
-# Define constants
-PARTMASS = 6.754657e+10  # Mass of each particle in M_sun / h
-COSMO = {
-    "flat": True,
-    "H0": 70,
-    "Om0": 0.3,
-    "Ob0": 0.0469,
-    "sigma8": 0.8355,
-    "ns": 1,
-}
-RSOFT = 0.015  # Softening length in Mpc/h
-BOXSIZE = 1_000  # Simulation box size in Mpc / h
-RHOCRIT = 2.77536627e+11  # Critical density in h^2 M_sun / Mpc^3
-RHOM = RHOCRIT * COSMO["Om0"]  # Matter density in h^2 M_sun / Mpc^3
-MEMBSIZE = int(10 * 1000**3)  # Memory allocation for large files
-G = 4.3e-9  # Gravitational constant
-MPCRANGE = 5  # Range for particle selection
-DS = 1  # Downsampling factor
-
 # Define paths (anonymized)
 SRC = abspath('/path/to/simulations/')
 SDD = abspath('/path/to/halo_model/')
