@@ -1,8 +1,7 @@
 """
-Orbital Classification and Halo Energy Analysis
+Particle Classification Algorithm
 
-This script analyzes halo energy distributions and classifies orbits based on particle motion
-in a cosmological simulation. It computes R200 and M200 values for seeds and classifies particles
+This script analyzes halo energy distributions and classifies orbits based on particle motion. It computes R200 and M200 values for seeds and classifies particles
 and halos based on their velocities and positions.
 
 Features:
@@ -10,7 +9,7 @@ Features:
 - Computes R200, M200, and velocity-based classifications.
 - Iteratively assigns orbital and infall classifications to particles.
 - Sorts and processes seed halos based on mass and vmax.
-- Saves results in a structured format for further analysis.
+- Saves results
 
 Author: John Hugon
 """
