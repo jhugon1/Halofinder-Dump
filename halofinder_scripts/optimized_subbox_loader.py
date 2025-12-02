@@ -1,10 +1,5 @@
 """
-Optimized Spatial Data Loader for Cosmological Halo Finding
-
-This module provides optimized spatial partitioning and data loading functionality for 
-large-scale cosmological simulations. It implements efficient subbox-based data organization
-with vectorized operations and intelligent caching for maximum performance.
-
+Optimized Subbox Loader
 Authors: John Hugon, Vadim Bernshteyn
 """
 
@@ -21,10 +16,6 @@ from halofinder.config import SRC_PATH
 from halofinder.cosmology import BOXSIZE
 from halofinder.utils import timer
 
-# Suppress warnings for cleaner output
-warnings.filterwarnings('ignore')
-
-# Cache for frequently computed values
 _SUBBOX_CACHE = {}
 _N_CACHE = {}
 
@@ -50,13 +41,13 @@ def gen_subbox_id_fast(
     n_points = xyz.shape[0]
     ids = np.empty(n_points, dtype=np.int64)
     
-    # Vectorized computation with parallel processing
+    # Vectorize and parallel process
     for i in prange(n_points):
         ix = int(xyz[i, 0] // subbox_size)
         iy = int(xyz[i, 1] // subbox_size)
         iz = int(xyz[i, 2] // subbox_size)
         
-        # Ensure indices are within bounds
+        # indices within bounds
         ix = min(max(ix, 0), N - 1)
         iy = min(max(iy, 0), N - 1)
         iz = min(max(iz, 0), N - 1)
@@ -90,10 +81,10 @@ def gen_subbox_id(
     inv_subbox_size = 1.0 / subbox_size
     indices = np.floor(xyz * inv_subbox_size).astype(np.int64)
     
-    # Clamp indices to valid range
+    # valid range only
     indices = np.clip(indices, 0, N - 1)
     
-    # Compute 1D indices efficiently
+    # Compute 1D indices
     multipliers = np.array([1, N, N * N], dtype=np.int64)
     ids = np.sum(indices * multipliers, axis=-1)
     
@@ -149,7 +140,7 @@ def get_subbox_ids_around_seed_optimized(
     
     near_box_inds = set()
     
-    # Pre-compute range to avoid repeated calculations
+    # Precompute range
     search_range = range(-box_r, box_r + 1)
     
     for di in search_range:
@@ -374,7 +365,6 @@ def _load_subbox_file_optimized(
         if missing:
             raise KeyError(f"Missing datasets in subbox file: {missing}")
         
-        # Load data efficiently
         part_ids = hdf_load["part_pid"][:]
         part_pos = hdf_load["part_pos"][:]
         part_vel = hdf_load["part_vel"][:]
@@ -469,13 +459,18 @@ def create_subboxes_batch(
     
     print(f"Created {len(created_files)} subbox files in {output_dir}")
     return created_files
-
-
-if __name__ == "__main__":
-    # Example usage and testing
-    print("Testing optimized spatial data loader...")
     
-    # Test subbox ID generation
+def estimate_mem(arrays: List[np.ndarray]) -> float:
+    """
+    Estimate total memory usage
+    """
+    total_bytes = sum(arr.nbytes for arr in arrays)
+    return total_bytes / 1e6
+
+
+
+if __name__ == "__main__"
+    # Test subbox ID gen
     test_coords = np.random.rand(1000, 3) * BOXSIZE
     box_ids = gen_subbox_id(test_coords)
     print(f"Generated {len(np.unique(box_ids))} unique subbox IDs")
@@ -487,4 +482,4 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"Data loading test failed: {e}")
     
-    print("Optimization tests completed.")
+    print("tests completed.")
